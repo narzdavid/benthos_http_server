@@ -3,6 +3,10 @@ input:
 
 
 output:
-  label: ""
-  stdout:
-    codec: lines
+  broker:
+    pattern: fan_out
+    outputs:
+    - stdout:
+        codec: lines
+    - sync_response:
+        status: "204"

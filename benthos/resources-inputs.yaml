@@ -6,3 +6,5 @@ input_resources:
       allowed_verbs:
         - POST
       timeout: 5s
+      sync_response:
+        status: 204
