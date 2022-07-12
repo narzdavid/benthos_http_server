@@ -1,0 +1,8 @@
+input:
+  resource: http_sample_input
+
+
+output:
+  label: ""
+  stdout:
+    codec: lines

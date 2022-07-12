@@ -1,0 +1,8 @@
+input_resources:
+  - label: http_sample_input
+    http_server:
+      address: ""
+      path: /normal_endpoint
+      allowed_verbs:
+        - POST
+      timeout: 5s

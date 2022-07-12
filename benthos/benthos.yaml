@@ -1,0 +1,17 @@
+logger:
+  level: '${LOG_LEVEL:DEBUG}'
+  add_timestamp: true
+  format: json
+  static_fields:
+    "@service": benthos-streams
+
+http:
+  address: 0.0.0.0:4195
+  enabled: true
+  root_path: /benthos
+  debug_endpoints: true
+  cert_file: ""
+  key_file: ""
+  cors:
+    enabled: false
+    allowed_origins: []

@@ -1,0 +1,16 @@
+input:
+  label: "inline_server"
+  http_server:
+    address: ""
+    path: /i_dont_want_this_prefix
+    allowed_verbs:
+      - POST
+    timeout: 5s
+    # sync_response:
+      # status: "204"
+
+
+output:
+  label: ""
+  stdout:
+    codec: lines

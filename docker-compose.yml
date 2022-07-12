@@ -1,0 +1,30 @@
+version: '3.3'
+
+services:
+  benthos:
+    image: jeffail/benthos:4.2.0
+    container_name: test_test
+    ports:
+      - 4195:4195
+    environment:
+      MQTT_HOST: 'tcp://mqtt:1883'
+      MQTT_USER: dash
+      MQTT_PASSWORD: dash
+      MQTT_CLIENT_ID: 'fma-benthos-local'
+      MQTT_QOS: '1'
+      MQTT_CLEAN_SESSION: 'false'
+      LOG_LEVEL: ALL
+      # For manual tests: https://webhook.site
+      HTTP_SAMPLE_OUTPUT_URL: HTTP_SAMPLE_OUTPUT_URL
+      WCS_HOST: "http://wcs:8080"
+      WCS_USERNAME: "valid_username"
+      WCS_PASSWORD: "valid_password"
+      FCMS_HOST : "http://fcms:8080"
+    volumes:
+      - ./benthos:/etc/benthos
+    entrypoint : [
+      "/benthos",
+      "-c", "/etc/benthos/benthos.yaml",
+      "-r", "/etc/benthos/resources-*.yaml",
+      "streams", "/etc/benthos/streams/",
+    ]
